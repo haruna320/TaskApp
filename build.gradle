@@ -1,0 +1,30 @@
+plugins { // Gradleで使用するプラグインを定義する
+    id 'java' // Javaのコンパイル機能を有効にする
+    id 'org.springframework.boot' version '4.2.0' // Spring Bootのプラグインを使用する
+    id 'io.spring.dependency-management' version '1.1.7' // 依存ライブラリのバージョンを管理する
+} // プラグイン定義を終了する
+
+group = 'com.example' // プロジェクトのグループ名を設定する
+version = '0.0.1-SNAPSHOT' // プロジェクトのバージョンを設定する
+
+java { // Javaの利用バージョンを設定する
+    toolchain { // Javaツールチェーンの設定を開始する
+        languageVersion = JavaLanguageVersion.of(21) // Java 21を使用する
+    } // ツールチェーン設定を終了する
+} // Java設定を終了する
+
+repositories { // ライブラリの取得先を設定する
+    mavenCentral() // Maven Centralから取得する
+} // 取得先の設定を終了する
+
+dependencies { // 使用するライブラリを定義する
+    implementation 'org.springframework.boot:spring-boot-starter-webmvc' // Spring MVCを使用する
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // Thymeleafを使用する
+    developmentOnly 'org.springframework.boot:spring-boot-devtools' // 開発時の再起動を支援する
+    testImplementation 'org.springframework.boot:spring-boot-starter-test' // テスト用のライブラリを使用する
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher' // JUnitテストを起動できるようにする
+} // 依存関係の定義を終了する
+
+tasks.named('test') { // Gradleのtestタスクを設定する
+    useJUnitPlatform() // JUnit Platformを使ってテストを実行する
+} // testタスクの設定を終了する

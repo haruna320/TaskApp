@@ -1,0 +1,14 @@
+# Gradleの生成物
+.gradle/
+build/
+# Eclipseの生成物
+bin/
+out/
+# OSの生成物
+.DS_Store
+Thumbs.db
+# 秘密情報
+.env
+.env.*
+application-local.properties
+application-secret.properties
